@@ -1,12 +1,19 @@
 :root {
   --black: #050505;
   --deep-black: #000;
-  --purple: #7a1fff;
-  --purple-glow: rgba(122, 31, 255, 0.35);
+
+  /* LOCKED PURPLE SYSTEM */
+  --purple: #7a1fff;          /* main */
+  --purple-dark: #4b0082;     /* deep */
+  --purple-light: #9b4dff;    /* accents */
+  --purple-glow: rgba(122, 31, 255, 0.4);
+
   --gold: #d4af37;
   --text: #f1f1f1;
   --muted: #b3b3b3;
-  --glass: rgba(122, 31, 255, 0.35);
+
+  /* GLASS FIXED (no purple tint) */
+  --glass: rgba(20, 20, 20, 0.85);
 }
 
 * {
@@ -94,7 +101,7 @@ nav a:hover {
 
 .hero h2 {
   font-size: 3.8rem;
-  color: #bb00ff;
+  color: var(--purple);
   margin-bottom: 1rem;
 }
 
@@ -131,7 +138,7 @@ h2 {
   background: var(--glass);
   padding: 2.8rem;
   border-radius: 22px;
-  backdrop-filter: blur(14px);
+  background: rgba(20, 20, 20, 0.95);
 }
 
 /* ===== SKILLS ===== */
@@ -142,12 +149,12 @@ h2 {
 #skills {
   background: linear-gradient(
     135deg,
-    #5a00cc,
-    #7a1fff,
-    #3a007a
+    var(--purple-darak),
+    var(--purple),
+    #2a004f
   );
   border-top: 4px solid var(--purple);
-  border-bottom: 4px solid var(--purple);
+  border-bottom: 4px solid var(-a-purple);
 }
 .skills {
   display: grid;
@@ -172,24 +179,27 @@ h2 {
 /* ===== PROJECTS ===== */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  align-items: stretch; /* ensures all cards have the same height */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem; /* THIS fixes the sticking */
+  margin-top: 2rem;
 }
 
 .project-card {
-  display: flex;
-  flex-direction: column;       /* stack content vertically */
-  justify-content: space-between; /* push button to the bottom */
-  background: var(--glass);
+  background: linear-gradient(
+    135deg,
+    var(--purple-dark),
+    var(--purple)
+  );
   padding: 2rem;
   border-radius: 18px;
+  min-height: 360px;
   transition: 0.4s;
-  min-height: 360px; /* optional: makes all cards roughly equal height */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
 .project-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 30px var(--purple-glow);
 }
 
 /* ===== PROJECT CARD CONTENT ===== */
