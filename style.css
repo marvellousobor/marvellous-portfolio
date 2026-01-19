@@ -149,12 +149,12 @@ h2 {
 #skills {
   background: linear-gradient(
     135deg,
-    var(--purple-darak),
+    var(--purple-dark),
     var(--purple),
     #2a004f
   );
   border-top: 4px solid var(--purple);
-  border-bottom: 4px solid var(-a-purple);
+  border-bottom: 4px solid var(--purple);
 }
 .skills {
   display: grid;
